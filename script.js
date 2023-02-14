@@ -6,7 +6,7 @@ function formValidate() {
     let price = document.getElementById("price").value;
     let des = document.getElementById("des").value;
 
-    let idPattern = /[0-9]/;
+    let idPattern = /^\d{3}$/;
     let pricePattern = /[0-9]/;
 
 
@@ -15,7 +15,7 @@ function formValidate() {
         return false;
     }
     if (!id.match(idPattern)) {
-        alert("Id Contains Only Numeric Data");
+        alert("Id Contains Only 3 Numeric Value");
         return false;
     }
     if (price <= 0 | !price.match(pricePattern)) {
