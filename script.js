@@ -88,7 +88,7 @@ function submitData() {
 
 // Function Of Updating Data 
 function updateData(index) {
-    let confirmation = confirm("Image Cannot Be Update");
+    let confirmation = confirm("Image Must Be Update");
     if (confirmation == true) {
         document.getElementById("Submit").style.display = "none";
         document.getElementById("Update").style.display = "block";
@@ -102,14 +102,15 @@ function updateData(index) {
         }
         document.getElementById("pid").value = dataList[index].id;
         document.getElementById("name").value = dataList[index].nm;
-        // document.getElementById("image").files[0].name = dataList[index].img;
+        document.getElementById("image").files[0] = dataList[index].img;
         document.getElementById("price").value = dataList[index].price;
         document.getElementById("des").value = dataList[index].des;
 
         document.querySelector("#Update").onclick = function () {
             dataList[index].id = document.getElementById("pid").value;
             dataList[index].nm = document.getElementById("name").value;
-            // dataList[index].img = document.getElementById("image").files[0].name;
+            // dataList[index].img = updateImg[0].name;
+            dataList[index].img = document.getElementById("image").files[0].name;
             dataList[index].price = document.getElementById("price").value;
             dataList[index].des = document.getElementById("des").value;
 
@@ -121,6 +122,11 @@ function updateData(index) {
         }
     }
 }
+
+// var updateImg = null;
+// function changeImg(){
+//     updateImg = document.getElementById("image").files;
+// }
 
 // Function Of Deleting Data
 function deleteData(index) {
